@@ -177,6 +177,22 @@ function showStars(rows) {
 
     
 }
+function showStars1(rows) {
+
+    for (let i = 0; i < rows; i++) {
+        let s = "";
+        for (let j = 0; j <= rows; j++)  {
+            s = s + "*"
+            console.log(s)
+
+        }
+
+    }
+
+}
+console.log("###############")
+showStars1(5)
+console.log("###############")
 
 function showPrimes(numbers) {
 
@@ -202,4 +218,167 @@ console.log(sum(10));
 console.log(calculate([80,80,50]));
 showPrimes(20);
 
-showStars(5);;
+showStars(5);
+
+//this is object oriented style of programming in js
+const circle = { 
+ 
+    radius : 1,
+    location : {
+        x: 1,
+        y: 2
+    },
+    isVisible : true,
+    //the below is generally referred as method
+    draw : function() {
+        console.log('draw');
+    }
+
+}
+
+//the above is not re-usable
+
+//below is the factory function
+
+function createCircle(radius) {
+    return {
+        radius,
+        draw() {
+            console.log("draw");
+        }
+    };
+}
+
+const circle1 = createCircle(1);
+const circle2 = createCircle(2);
+console.log(circle1);
+console.log(circle2);
+
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {console.log("drawing via contructor");}
+
+}
+
+const circle3 = new Circle(11);
+console.log(circle3);
+circle3.color = "RED";
+
+
+let x = 10;
+let y = x;
+
+x = 20;
+
+let x1 = {value : 10};
+let y1 = x1;
+
+x1.value = 20
+
+let num4 = 36;
+
+let num5 = {value : 37};
+
+function increase(num4) {
+    num4++;
+}
+
+function increase1(num5) {
+    num5.value++;
+}
+
+console.log(num4);
+console.log(num5.value);
+
+for (const key in circle1) {
+  console.log(key, circle1[key]);
+}
+
+for (const key of Object.keys(circle1)) {
+    console.log(key);
+}
+
+for (const key in circle3) {
+    console.log(key, circle1[key]);
+  }
+  
+  for (const key of Object.keys(circle3)) {
+      console.log(key);
+  }
+
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  console.log(getRandomArbitrary(10,11));
+
+  let na = 'nk'
+  let s1 = `hi ${na}
+  how are you`;
+
+  console.log(s1);
+
+
+
+   function createAddress(street, city, zipCode) {
+        return { 
+            street,
+            city,
+            zipCode,
+            showAddress() {
+            console.log("show the address");
+            }
+            
+        }
+
+    }
+    
+    let add1 = createAddress('street 21', 'singapre', 520261);
+
+    for (const key in add1) {
+       
+        console.log(key,add1[key]);
+
+    }
+
+
+  function Address(road,town,zip) {
+    this.road = road;
+    this.town = town;
+    this.zip = zip;
+    this.draw = function() {
+        console.log('this is the address from construtor');
+    }
+
+  }
+
+  let address1 = new Address("mainroad", 'madurai city', 468);
+  let address2 = new Address("mainroad", 'madurai city', 468);
+  let address3 = address1;
+
+  console.log('*******************');
+  
+  for(key in address1) {
+      console.log(key, address1[key]);
+    }
+    
+    console.log('*******************');
+
+    console.log(Address);
+    console.log(address1);
+
+
+    function areEqual(obj1, obj2) {
+        for(key in obj1) {
+           if(obj1[key] === obj2[key]);
+        }
+        return true;
+    }
+
+    function areSame(obj1,obj2) {
+        return (obj1 === obj2)
+    }
+
+    console.log("This is equal: addres1, adress2" , areEqual(address1,address2));
+    console.log("This is same: address1, address2", areSame(address1,address2));
+    console.log('This is same: address1, address3', areSame(address1,address3));
