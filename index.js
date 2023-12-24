@@ -382,3 +382,58 @@ for (const key in circle3) {
     console.log("This is equal: addres1, adress2" , areEqual(address1,address2));
     console.log("This is same: address1, address2", areSame(address1,address2));
     console.log('This is same: address1, address3', areSame(address1,address3));
+
+
+    const blogPost = {
+        title : "this is the title",
+        body : 'this is the body',
+        author : "this is the author",
+        view : "number of views",
+        comments : [ 
+            {author : "authorName", body : "Comments by the author"},
+            {author : "authorName2", body : "body2"},
+        ],
+        isLive : true,
+    }
+
+    console.log(blogPost);
+
+    function BlogPostConstructor(title,body,author) {
+        this.title = title;
+        this.body = body;
+        this.author = author;
+        this.view = 0;
+        this.comments = [];
+        this.isLive = true;
+    }
+
+    const blog1 = new BlogPostConstructor();
+    console.log(blog1);
+
+    function arraysFromRange(min, max) {
+
+        array = [];
+        for (let i = min; i <= max; i++) 
+            array.push(i);
+            return array;
+    }
+
+
+    console.log(arraysFromRange(-10,5));
+
+
+    function includes(array,searchCriteria) {
+
+            for (let key of array) {
+                if(key === searchCriteria) {
+                    return true;
+                }
+            }
+
+            return false;
+
+    }
+
+
+
+    console.log(includes([1,23,4,5],5));
